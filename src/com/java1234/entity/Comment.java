@@ -20,16 +20,34 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="t_comment")
 public class Comment {
 
+	/**
+	 * 主键，PK
+	 */
 	private int id;
 	
+	/**
+	 * 评论内容
+	 */
 	private String content;
 	
+	/**
+	 * 昵称
+	 */
 	private String nickName;
 	
+	/**
+	 * 评论创建时间
+	 */
 	private Date createTime;
 	
+	/**
+	 * 回复内容
+	 */
 	private String replyContent;
 	
+	/**
+	 * 回复时间
+	 */
 	private Date replyTime;
 
 	@Id
