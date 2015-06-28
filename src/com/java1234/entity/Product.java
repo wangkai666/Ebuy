@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -70,6 +72,16 @@ public class Product {
 	 * 热卖时间
 	 */
 	private Date specialPriceTime;
+	
+	/**
+	 * 商品大类
+	 */
+	private ProductBigType productBigType;
+	
+	/**
+	 * 商品小类
+	 */
+	private ProductSmallType productSmallType;
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -154,6 +166,26 @@ public class Product {
 
 	public void setSpecialPriceTime(Date specialPriceTime) {
 		this.specialPriceTime = specialPriceTime;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="bigTypeId")
+	public ProductBigType getProductBigType() {
+		return productBigType;
+	}
+
+	public void setProductBigType(ProductBigType productBigType) {
+		this.productBigType = productBigType;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="smallTypeId")
+	public ProductSmallType getProductSmallType() {
+		return productSmallType;
+	}
+
+	public void setProductSmallType(ProductSmallType productSmallType) {
+		this.productSmallType = productSmallType;
 	}
 	
 	

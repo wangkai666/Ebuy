@@ -1,11 +1,16 @@
 package com.java1234.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -72,6 +77,8 @@ public class User {
 	 * 状态：1是普通会员
 	 */
 	private int status = 1;
+	
+	private List<Order> orderList = new ArrayList<Order>();
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -170,6 +177,16 @@ public class User {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	@OneToMany(targetEntity=Order.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="userId")
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
 	}
 	
 	
