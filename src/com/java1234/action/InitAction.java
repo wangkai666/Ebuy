@@ -15,7 +15,7 @@ import com.java1234.entity.ProductBigType;
 import com.java1234.service.ProductBigTypeService;
 
 /**
- * 初始化
+ * 初始化，把常用的信息放到application缓存中
  *	
  * @author wangkai
  *
