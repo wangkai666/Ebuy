@@ -18,6 +18,11 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- 添加初始化监听器 -->
+	<listener>
+		<listener-class>com.java1234.action.InitAction</listener-class>
+	</listener>
 
 	<!-- 添加对struts2的支持 -->
 	<filter>

@@ -2,29 +2,41 @@ package com.java1234.entity;
 
 /**
  * 分页Model类
- * @author 
- *
+ * 
+ * @author
+ * 
  */
 public class PageBean {
 
-	private int page; // 第几页
-	private int pageSize; // 每页记录数
-	private int start;  // 起始页
-	
-	
+	/**
+	 * 第几页
+	 */
+	private int page;
+
+	/**
+	 * 每页记录数
+	 */
+	private int pageSize;
+
+	/**
+	 * 起始页
+	 */
+	private int start;
+
 	public PageBean(int page, int pageSize) {
 		super();
 		this.page = page;
 		this.pageSize = pageSize;
 	}
-	
+
 	public int getPage() {
 		return page;
 	}
+
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
+
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -34,8 +46,7 @@ public class PageBean {
 	}
 
 	public int getStart() {
-		return (page-1)*pageSize;
+		return (page - 1) * pageSize;
 	}
-	
-	
+
 }

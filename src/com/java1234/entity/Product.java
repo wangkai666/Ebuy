@@ -18,24 +18,24 @@ import org.hibernate.annotations.GenericGenerator;
 /**
  * 
  * 商品
- *
+ * 
  * @author wangkai
- *
+ * 
  */
 @Entity
-@Table(name="t_product")
+@Table(name = "t_product")
 public class Product {
 
 	/**
 	 * 主键，pk
 	 */
 	private int id;
-	
+
 	/**
 	 * 产品名称
 	 */
 	private String name;
-	
+
 	/**
 	 * 价格
 	 */
@@ -45,52 +45,52 @@ public class Product {
 	 * 库存
 	 */
 	private int stock;
-	
+
 	/**
 	 * 图片地址
 	 */
 	private String proPic;
-	
+
 	/**
 	 * 产品描述
 	 */
 	private String description;
-	
+
 	/**
 	 * 是否热卖
 	 */
 	private int hot;
-	
+
 	/**
 	 * 热卖时间
 	 */
 	private Date hotTime;
-	
+
 	/**
 	 * 热卖价格
 	 */
 	private int specialPrice;
-	
+
 	/**
 	 * 热卖时间
 	 */
 	private Date specialPriceTime;
-	
+
 	/**
 	 * 商品大类
 	 */
 	private ProductBigType bigType;
-	
+
 	/**
 	 * 商品小类
 	 */
 	private ProductSmallType smallType;
-	
+
 	private List<OrderProduct> orderProductList = new ArrayList<OrderProduct>();
 
 	@Id
-	@GeneratedValue(generator="_native")
-	@GenericGenerator(name="_native",strategy="native")
+	@GeneratedValue(generator = "_native")
+	@GenericGenerator(name = "_native", strategy = "native")
 	public int getId() {
 		return id;
 	}
@@ -99,7 +99,7 @@ public class Product {
 		this.id = id;
 	}
 
-	@Column(length=50)
+	@Column(length = 50)
 	public String getName() {
 		return name;
 	}
@@ -132,7 +132,7 @@ public class Product {
 		this.proPic = proPic;
 	}
 
-	@Column(length=2000)
+	@Column(length = 2000)
 	public String getDescription() {
 		return description;
 	}
@@ -172,9 +172,9 @@ public class Product {
 	public void setSpecialPriceTime(Date specialPriceTime) {
 		this.specialPriceTime = specialPriceTime;
 	}
-	
+
 	@ManyToOne
-	@JoinColumn(name="bigTypeId")
+	@JoinColumn(name = "bigTypeId")
 	public ProductBigType getBigType() {
 		return bigType;
 	}
@@ -184,7 +184,7 @@ public class Product {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="smallTypeId")
+	@JoinColumn(name = "smallTypeId")
 	public ProductSmallType getSmallType() {
 		return smallType;
 	}
@@ -194,7 +194,7 @@ public class Product {
 	}
 
 	@OneToMany
-	@JoinColumn(name="productId")
+	@JoinColumn(name = "productId")
 	public List<OrderProduct> getOrderProductList() {
 		return orderProductList;
 	}
@@ -202,8 +202,5 @@ public class Product {
 	public void setOrderProductList(List<OrderProduct> orderProductList) {
 		this.orderProductList = orderProductList;
 	}
-	
-	
-	
-	
+
 }
