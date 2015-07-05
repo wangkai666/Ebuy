@@ -1,6 +1,8 @@
 package com.java1234.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,13 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 
- * 产品
+ * 商品
  *
  * @author wangkai
  *
@@ -76,12 +79,14 @@ public class Product {
 	/**
 	 * 商品大类
 	 */
-	private ProductBigType productBigType;
+	private ProductBigType bigType;
 	
 	/**
 	 * 商品小类
 	 */
-	private ProductSmallType productSmallType;
+	private ProductSmallType smallType;
+	
+	private List<OrderProduct> orderProductList = new ArrayList<OrderProduct>();
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -167,25 +172,35 @@ public class Product {
 	public void setSpecialPriceTime(Date specialPriceTime) {
 		this.specialPriceTime = specialPriceTime;
 	}
-
+	
 	@ManyToOne
 	@JoinColumn(name="bigTypeId")
-	public ProductBigType getProductBigType() {
-		return productBigType;
+	public ProductBigType getBigType() {
+		return bigType;
 	}
 
-	public void setProductBigType(ProductBigType productBigType) {
-		this.productBigType = productBigType;
+	public void setBigType(ProductBigType bigType) {
+		this.bigType = bigType;
 	}
 
 	@ManyToOne
 	@JoinColumn(name="smallTypeId")
-	public ProductSmallType getProductSmallType() {
-		return productSmallType;
+	public ProductSmallType getSmallType() {
+		return smallType;
 	}
 
-	public void setProductSmallType(ProductSmallType productSmallType) {
-		this.productSmallType = productSmallType;
+	public void setSmallType(ProductSmallType smallType) {
+		this.smallType = smallType;
+	}
+
+	@OneToMany
+	@JoinColumn(name="productId")
+	public List<OrderProduct> getOrderProductList() {
+		return orderProductList;
+	}
+
+	public void setOrderProductList(List<OrderProduct> orderProductList) {
+		this.orderProductList = orderProductList;
 	}
 	
 	

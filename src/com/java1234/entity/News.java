@@ -39,7 +39,7 @@ public class News {
 	/**
 	 * 创建时间
 	 */
-	private Date createName;
+	private Date createTime;
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -71,13 +71,14 @@ public class News {
 		this.content = content;
 	}
 
-	public Date getCreateName() {
-		return createName;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreateName(Date createName) {
-		this.createName = createName;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
+
 	
 	
 	

@@ -3,6 +3,8 @@ package com.java1234.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -23,6 +25,16 @@ public class OrderProduct {
 	 * 商品数量
 	 */
 	private int num;
+	
+	/**
+	 * 订单
+	 */
+	private Order order;
+	
+	/**
+	 * 商品
+	 */
+	private Product product;
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -41,6 +53,26 @@ public class OrderProduct {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="orderId")
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	@ManyToOne
+	@JoinColumn(name="productId")
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	

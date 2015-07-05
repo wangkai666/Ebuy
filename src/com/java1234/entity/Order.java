@@ -1,14 +1,20 @@
 package com.java1234.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -46,9 +52,12 @@ public class Order {
 	 */
 	private int status;
 	
+	/**
+	 * ”√ªß
+	 */
 	private User user;
 
-	
+	private List<OrderProduct> orderProductList = new ArrayList<OrderProduct>();
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -103,5 +112,15 @@ public class Order {
 		this.user = user;
 	}
 	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="orderId")
+	@Cascade(value={CascadeType.SAVE_UPDATE})
+	public List<OrderProduct> getOrderProductList() {
+		return orderProductList;
+	}
+
+	public void setOrderProductList(List<OrderProduct> orderProductList) {
+		this.orderProductList = orderProductList;
+	}
 	
 }

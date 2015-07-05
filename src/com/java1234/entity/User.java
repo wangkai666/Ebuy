@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,6 +22,7 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity
+@Table(name="t_user")
 public class User {
 
 	/**
@@ -78,6 +80,9 @@ public class User {
 	 */
 	private int status = 1;
 	
+	/**
+	 * ¶©µ¥£¨user:order 1¶Ô¶à£©
+	 */
 	private List<Order> orderList = new ArrayList<Order>();
 
 	@Id

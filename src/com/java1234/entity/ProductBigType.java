@@ -47,7 +47,7 @@ public class ProductBigType {
 	/**
 	 * 商品小类
 	 */
-	private List<ProductSmallType> productSmallTypeList = new ArrayList<ProductSmallType>();
+	private List<ProductSmallType> smallTypeList = new ArrayList<ProductSmallType>();
 
 	@Id
 	@GeneratedValue(generator="_native")
@@ -85,15 +85,17 @@ public class ProductBigType {
 	public void setProductList(List<Product> productList) {
 		this.productList = productList;
 	}
-
+	
 	@OneToMany(mappedBy="bigType",fetch=FetchType.EAGER)
-	public List<ProductSmallType> getProductSmallTypeList() {
-		return productSmallTypeList;
+	public List<ProductSmallType> getSmallTypeList() {
+		return smallTypeList;
 	}
 
-	public void setProductSmallTypeList(List<ProductSmallType> productSmallTypeList) {
-		this.productSmallTypeList = productSmallTypeList;
+	public void setSmallTypeList(List<ProductSmallType> smallTypeList) {
+		this.smallTypeList = smallTypeList;
 	}
+
+	
 	
 	
 }

@@ -49,7 +49,7 @@ public class ProductSmallType {
 	 * …Ã∆∑
 	 */
 	private List<Product> productList = new ArrayList<Product>();
-
+	
 	@Id
 	@GeneratedValue(generator="_native")
 	@GenericGenerator(name="_native",strategy="native")
