@@ -86,6 +86,7 @@ public class ProductBigType {
 		this.productList = productList;
 	}
 	
+	//¡¢º¥º”‘ÿ
 	@OneToMany(mappedBy="bigType",fetch=FetchType.EAGER)
 	public List<ProductSmallType> getSmallTypeList() {
 		return smallTypeList;
