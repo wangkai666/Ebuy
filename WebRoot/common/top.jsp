@@ -32,7 +32,11 @@
 	<ul class="clearfix">
 		<li class="current"><a href="index.jsp">首页</a>
 		</li>
-		
+		<c:forEach var="bigType" items="${bigTypeList }">
+			<li>
+				<a href="#">${bigType.name }</a>
+			</li>
+		</c:forEach>
 	</ul>
 </div>
 
@@ -40,7 +44,20 @@
 <div id="childNav">
 	<div class="wrap">
 		<ul class="clearfix">
-			
+			<c:forEach var="tag" items="${tagList }" varStatus="status">
+				<c:choose>
+					<c:when test="${status.index==0 }">
+						<li class="first">
+							<a href="${tag.url }" target="_blank">${tag.name }</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li>
+							<a href="${tag.url }" target="_blank">${tag.name }</a>
+						</li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
 		</ul>
 	</div>
 </div>

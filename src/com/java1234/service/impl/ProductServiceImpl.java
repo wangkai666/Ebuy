@@ -26,17 +26,18 @@ public class ProductServiceImpl implements ProductService {
 	
 	public List<Product> findProductList(Product s_product, PageBean pageBean) {
 		List<Object> param = new LinkedList<Object>();
-		StringBuffer hql = new StringBuffer("from News");	
+		StringBuffer hql = new StringBuffer("from Product");	
 		if (s_product != null) {
 			if (s_product.getSpecialPrice() == 1 ) {
 				hql.append(" and specialPrice=1 order by specialPriceTime desc");
 			}
 			if (s_product.getHot() == 1) {
-				hql.append("and hot=1 order by hotTime desc");
+				hql.append(" and hot=1 order by hotTime desc");
 			}
 		}
 		if (pageBean != null) {
-			return baseDAO.find(hql.toString().replaceFirst("and", "where"),param,pageBean);
+			String str = hql.toString().replaceFirst("and", "where");
+			return baseDAO.find(str,param,pageBean);
 		}else {
 			return null;
 		}
