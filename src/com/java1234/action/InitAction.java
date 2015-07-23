@@ -64,8 +64,8 @@ public class InitAction implements ServletContextListener,ApplicationContextAwar
 		Product s_product = new Product();
 		s_product.setSpecialPrice(1);
 		ProductService productService = (ProductService)applicationContext.getBean("productService");
-		List<Product> specialProductList = productService.findProductList(s_product, new PageBean(1, 8));
-		servletContext.setAttribute("specialProductList", specialProductList);
+		List<Product> specialPriceProductList = productService.findProductList(s_product, new PageBean(1, 8));
+		servletContext.setAttribute("specialPriceProductList", specialPriceProductList);
 		
 		//将热卖商品放入缓存
 		s_product = new Product();

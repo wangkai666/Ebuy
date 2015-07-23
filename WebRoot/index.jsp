@@ -11,7 +11,79 @@
 <div id="header" class="wrap">
 	<jsp:include page="common/top.jsp"/>
 </div>
-&nbsp;
+<div id="main" class="wrap">
+	<div class="lefter">
+		<jsp:include page="common/left.jsp"/>
+	</div>
+	<div class="main">
+			<div class="price-off ">
+				<h2>今日特价</h2>
+				<ul class="product clearfix">
+					<c:forEach items="${specialPriceProductList}" var="spProduct">
+						<li>
+							<dl>
+								<dt>
+									<a href="#"><img src="${spProduct.proPic }"></a>
+								</dt>
+								<dd class="title">
+									<a href="#">${spProduct.name }</a>
+								</dd>
+								<dd class="price">
+									￥ ${spProduct.price }
+								</dd>
+							</dl>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+			<div class="side">
+
+				<div class="news-list">
+					<h4>最新公告</h4>
+					<ul>
+						<c:forEach items="${noticeList }" var="notice">
+							<li>
+								<a href="#">${notice.title }</a>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<div class="spacer"></div>
+				<div class="news-list">
+					<h4>新闻动态</h4>
+					<ul>
+						<c:forEach items="${newsList }" var="news">
+							<li>
+								<a href="#">${news.title }</a>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+			<div class="spacer clear"></div>
+			
+			<div class="hot">
+				<h2>热卖推荐</h2>
+				<ul class="product clearfix">
+					<c:forEach items="${hotProductList}" var="hProduct">
+						<li>
+							<dl>
+								<dt>
+									<a href="#"><img src="${hProduct.proPic }"></a>
+								</dt>
+								<dd class="title">
+									<a href="#">${hProduct.name }</a>
+								</dd>
+								<dd class="price">￥ ${hProduct.price }</dd>
+							</dl>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="clear"></div>
+</div>
 <div id="footer">
 	<jsp:include page="common/footer.jsp"/>
 </div>
